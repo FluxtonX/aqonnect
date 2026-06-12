@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model UserOrder {
@@ -35,8 +36,8 @@ model UserOrder {
   matchingId     String?
   
   // Raw data
-  rawStripeSession String? // JSON string
-  rawEsimResponse  String? // JSON string
+  rawStripeSession String? @db.Text // JSON string
+  rawEsimResponse  String? @db.Text // JSON string
   
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
