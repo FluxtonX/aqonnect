@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model UserOrder {
+  id        String   @id @default(cuid())
+  email     String?
+  
+  // Package details
+  countryCode  String
+  countryName  String
+  packageCode  String
+  packageName  String
+  days         Int?
+  amountUSD    Float
+  
+  // Stripe
+  stripeSessionId       String   @unique
+  stripePaymentIntentId String?
+  paymentStatus         String   @default("pending") // pending | paid | failed
+  
+  // eSIM Access
+  esimStatus     String?  // processing | completed | failed
+  esimOrderNo    String?
+  esimTranNo     String?
+  iccid          String?
+  qrCodeUrl      String?
+  activationCode String?
+  smdpAddress    String?
+  matchingId     String?
+  
+  // Raw data
+  rawStripeSession String? // JSON string
+  rawEsimResponse  String? // JSON string
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
