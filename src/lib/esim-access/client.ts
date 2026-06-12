@@ -127,3 +127,21 @@ export async function queryOrderStatus(orderNo: string): Promise<EsimOrderQueryR
 
   return response;
 }
+
+/**
+ * Query eSIM profile details by ICCID.
+ * Returns detailed info including usage, APN, operators, status, etc.
+ */
+export async function queryEsimByIccid(iccid: string): Promise<EsimOrderQueryResponse> {
+  const response = await esimFetch<EsimOrderQueryResponse>(
+    '/api/v1/open/esim/query',
+    {
+      iccid,
+      pager: { pageNum: 1, pageSize: 10 },
+    }
+  );
+
+  console.log(`[eSIM Access] ICCID query response for ${iccid}:`, JSON.stringify(response));
+
+  return response;
+}

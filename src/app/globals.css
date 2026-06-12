@@ -30,6 +30,10 @@ html {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes progress-fill {
+  from { width: 0; }
+}
+
 .animate-fade-in {
   animation: fade-in 0.3s ease-out;
 }
@@ -81,4 +85,61 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #9ca3af;
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #D9A514, #E0AA17);
+  transition: width 0.6s ease-out;
+  animation: progress-fill 0.8s ease-out;
+}
+
+.progress-bar-fill-gray {
+  height: 100%;
+  border-radius: 4px;
+  background: #d1d5db;
+  transition: width 0.6s ease-out;
+  animation: progress-fill 0.8s ease-out;
+}
+
+/* Accordion transitions */
+.accordion-content {
+  transition: height 0.3s ease;
+}
+
+/* Copy button feedback */
+@keyframes copy-flash {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.copy-flash {
+  animation: copy-flash 0.3s ease;
+}
+
+/* Tab active indicator */
+.tab-active {
+  position: relative;
+}
+
+.tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 3px;
+  border-radius: 2px;
+  background: #D9A514;
 }

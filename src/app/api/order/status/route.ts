@@ -77,6 +77,10 @@ export async function GET(request: NextRequest) {
       }
     }
 
+    if (!order) {
+      return NextResponse.json({ error: 'Order not found.' }, { status: 404 });
+    }
+
     // Return sanitized order data (no raw responses)
     return NextResponse.json({
       id: order.id,
@@ -88,6 +92,8 @@ export async function GET(request: NextRequest) {
       amountUSD: order.amountUSD,
       paymentStatus: order.paymentStatus,
       esimStatus: order.esimStatus,
+      esimOrderNo: order.esimOrderNo,
+      esimTranNo: order.esimTranNo,
       iccid: order.iccid,
       qrCodeUrl: order.qrCodeUrl,
       activationCode: order.activationCode,

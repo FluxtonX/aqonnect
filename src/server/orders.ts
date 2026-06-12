@@ -79,3 +79,10 @@ export async function hasEsimOrder(orderId: string): Promise<boolean> {
   });
   return !!(order?.esimOrderNo || order?.esimTranNo);
 }
+
+export async function getOrderByEsimOrderNo(esimOrderNo: string) {
+  return prisma.userOrder.findFirst({
+    where: { esimOrderNo },
+  });
+}
+
