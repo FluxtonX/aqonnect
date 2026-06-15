@@ -1,8 +1,19 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
+
 /**
  * AQonnect Header component.
  * Centered logo + brand name, matching the production design.
  */
 export default function Header() {
+  const pathname = usePathname();
+
+  // Hide header on console routes
+  if (pathname && pathname.startsWith('/console')) {
+    return null;
+  }
+
   return (
     <header className="w-full bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-center gap-3">
