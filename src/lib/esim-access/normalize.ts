@@ -19,11 +19,10 @@ function getCountryName(locationCode: string): string {
 }
 
 /**
- * Convert raw API price (in cents, e.g. 7000 = $70.00) to dollars.
- * The eSIM Access API returns price as an integer in the smallest unit.
+ * Convert raw API price (value * 10,000 where 10000 = $1.00 USD) to dollars.
  */
 function convertPrice(rawPrice: number): number {
-  return Math.round(rawPrice) / 100;
+  return Math.round(rawPrice / 100) / 100;
 }
 
 export function normalizePackage(raw: EsimPackageRaw): NormalizedPlan {

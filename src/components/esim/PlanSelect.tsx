@@ -22,8 +22,8 @@ export default function PlanSelect({ plans, value, onChange, loading, disabled }
     searchText: `${plan.displayName} ${plan.dataAmount} ${plan.name}`,
     renderLabel: (
       <span className="flex items-center justify-between w-full">
-        <span className="font-medium text-gray-900">{plan.displayName}</span>
-        <span className="text-sm font-semibold ml-2 flex-shrink-0" style={{ color: '#D9A514' }}>
+        <span className="text-gray-900">{plan.displayName}</span>
+        <span className="text-sm text-gray-900 ml-2 flex-shrink-0">
           ${plan.priceUSD.toFixed(2)}
           {plan.isPerDay ? '/day' : ''}
         </span>
@@ -41,7 +41,7 @@ export default function PlanSelect({ plans, value, onChange, loading, disabled }
         options={options}
         value={value}
         onChange={onChange}
-        placeholder={loading ? 'Loading plans...' : 'Select a plan'}
+        placeholder={loading ? 'Loading plans...' : 'Select a Plan...'}
         searchPlaceholder="Search plans..."
         loading={loading}
         disabled={disabled || loading}

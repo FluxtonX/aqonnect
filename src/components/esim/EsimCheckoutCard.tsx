@@ -121,7 +121,7 @@ export default function EsimCheckoutCard() {
 
   return (
     <div className="w-full max-w-lg mx-auto">
-      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-visible">
         {/* Header */}
         <div className="px-6 pt-7 pb-2">
           <h2 className="text-xl font-bold text-gray-900">Select Your eSIM</h2>

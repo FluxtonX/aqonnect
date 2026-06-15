@@ -35,7 +35,7 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
         options={countryOptions}
         value={value}
         onChange={onChange}
-        placeholder="Select a country"
+        placeholder="Select Country..."
         searchPlaceholder="Search countries..."
       />
     </div>
