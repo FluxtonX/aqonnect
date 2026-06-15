@@ -8,7 +8,7 @@ export interface EsimPackageRaw {
   packageCode: string;
   slug?: string;
   name: string;
-  price: number;           // price in cents (e.g. 7000 = $70.00 USD)
+  price: number;           // price (value * 10,000, e.g. 10000 = $1.00 USD)
   currencyCode: string;    // e.g. "USD"
   volume: number;          // data in bytes
   smsVolume?: number;
